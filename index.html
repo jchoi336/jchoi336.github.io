@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Login</title>
+
+	
+	
+	<style>
+		
+		#welcome {
+  			overflow: hidden; /* Ensures the content is not revealed until the animation */
+  			border-right: .15em #d5e5ea; /* The typwriter cursor */
+  			margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  			letter-spacing: .15em; /* Adjust as needed */
+  			animation: 
+    			typing 3.5s steps(40, end),
+    			blink-caret .75s step-end infinite;
+    			
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #d5e5ea; }
+}
+		
+		body{
+			background-color: #011f4b;
+			font-family: "Courier New", Courier, monospace;
+			font-size: medium;
+			color: #d5e5ea;
+			
+		}
+
+
+	</style>
+	
+	<script>
+
+		var username = "";
+
+		while(username == "" || username == null){
+			username = prompt("Enter your username for verification."); //stores what is 
+
+		}
+		
+		
+		
+
+	</script>
+
+
+</head>
+<body>
+
+	<div id="welcome">
+		<script>
+		
+		document.getElementById("welcome").innerHTML = "Initializing Biometric Verification......................... Welcome: " + username;
+		</script>
+	</div>
+
+	
+	
+
+</body>
+</html>
