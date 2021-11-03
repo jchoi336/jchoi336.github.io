@@ -118,7 +118,7 @@
             var i = 1;
             window.setInterval(function(){
                 $('.image'). attr("src", images[i]);
-                document.getElementById("imageDescription").innerHTML = descriptions[i];
+                $("#imageDescription").html(descriptions[i]);
                 i = (i==images.length-1) ? 0 : i+1;
             }, 20000);
         });
