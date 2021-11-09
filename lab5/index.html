@@ -32,6 +32,17 @@
             <div class="col-md-12" id="image"></div>
             <div class="col-md-6" id="name">Name: </div>
             <div class="col-md-6" id="year">Year: </div>
+            <div class="col-md-3">Engine: </div>
+            <div class="col-md-9">
+                <ul>
+                    <li id="engineType">Type: </li>
+                    <li id="engineSize">Size: </li>
+                    <li id="engineConfig">Configuration: </li>
+                    
+                </ul>    
+            </div>
+
+
         </div>
     </div>
     <!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
@@ -45,9 +56,12 @@
             success:function(data)
             {
                 console.log(data);
-                $("#image").append("<img src = '" + data.imageURL + "' alt = 'Mercedes-Benz SLS AMG'");
+                //$("#image").append("<img src = '" + data.imageURL + "' alt = 'Mercedes-Benz SLS AMG'");
                 $("#name").append(data.name);
                 $("#year").append(data.year);
+                $("#engineType").append(data.engine.type);
+                $("#engineSize").append(data.engine.size);
+                $("#engineConfig").append(data.engine.configuration);
             }
         });
     </script>
