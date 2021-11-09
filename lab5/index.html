@@ -32,16 +32,16 @@
             <div class="col-md-12" id="image"></div>
             <div class="col-md-6" id="name">Name: </div>
             <div class="col-md-6" id="year">Year: </div>
-            <div class="col-md-3">Engine: </div>
-            <div class="col-md-9">
+            <div class="col-md-2">Engine: </div>
+            <div class="col-md-10">
                 <ul>
                     <li id="engineType">Type: </li>
                     <li id="engineSize">Size: </li>
                     <li id="engineConfig">Configuration: </li>
                 </ul>    
             </div>
-            <div class="col-md-3">Brakes: </div>
-            <div class="col-md-9">
+            <div class="col-md-2">Brakes: </div>
+            <div class="col-md-10">
                 <ul>
                     <li id="brakesFront">Front: </li>
                     <li id="brakesBack">Back: </li>
@@ -62,7 +62,7 @@
             success:function(data)
             {
                 console.log(data);
-                //$("#image").append("<img src = '" + data.imageURL + "' alt = 'Mercedes-Benz SLS AMG'");
+                $("#image").append("<img src = '" + data.imageURL + "' alt = 'Mercedes-Benz SLS AMG'");
                 $("#name").append(data.name);
                 $("#year").append(data.year);
                 $("#engineType").append(data.engine.type);
