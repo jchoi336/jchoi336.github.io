@@ -42,11 +42,12 @@
         $.ajax({
             type:"GET",
             url:"data.json",
-            success:function(response)
+            success:function(data)
             {
-                console.log(response);
-                //$("#image").append("<img src = '" + imageURL + "' alt = 'Mercedes-Benz SLS AMG'");
-                //$("#name").append(name);
+                console.log(data);
+                //$("#image").append("<img src = '" + data.imageURL + "' alt = 'Mercedes-Benz SLS AMG'");
+                $("#name").append(data.name);
+                $("#year").append(data.year);
             }
         });
     </script>
