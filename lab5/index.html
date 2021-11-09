@@ -38,7 +38,13 @@
                     <li id="engineType">Type: </li>
                     <li id="engineSize">Size: </li>
                     <li id="engineConfig">Configuration: </li>
-                    
+                </ul>    
+            </div>
+            <div class="col-md-3">Brakes: </div>
+            <div class="col-md-9">
+                <ul>
+                    <li id="brakesFront">Front: </li>
+                    <li id="brakesBack">Back: </li>
                 </ul>    
             </div>
 
@@ -62,6 +68,9 @@
                 $("#engineType").append(data.engine.type);
                 $("#engineSize").append(data.engine.size);
                 $("#engineConfig").append(data.engine.configuration);
+                $("#brakesFront").append(data.brakes.front);
+                $("#brakesBack").append(data.brakes.back);
+
             }
         });
     </script>
