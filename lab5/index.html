@@ -15,10 +15,6 @@
             margin-top: 70px;
             margin-bottom: 70px;  
        }
-       .image{
-           height: 320px;
-           width: auto;
-       }
     </style>
 </head>
 <body>
@@ -29,7 +25,7 @@
     <div class="container">
         <!--Row with two columns divided in 1:2 ratio-->
         <div class="row">
-            <div class="col-md-12" id="image"></div>
+            <div class="col-md-12"><img src="" id="image" alt="Mercedes-Benz SLS AMG"></div>
             <div class="col-md-6" id="name">Name: </div>
             <div class="col-md-6" id="year">Year: </div>
             <div class="col-md-2">Engine: </div>
@@ -62,7 +58,7 @@
             success:function(data)
             {
                 console.log(data);
-                $("#image").append("<img src = '" + data.imageURL + "' alt = 'Mercedes-Benz SLS AMG'");
+                $("#image").attr("src", data.imageURL);
                 $("#name").append(data.name);
                 $("#year").append(data.year);
                 $("#engineType").append(data.engine.type);
