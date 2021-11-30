@@ -58,7 +58,7 @@ app.post('/login', async (req, res) => {
                 let usrname = foundUser.username;
                 res.send(`<div align ='center'><h2>Login successful</h2></div><br><br><br><div align ='center'><h3>Hello ${usrname}</h3></div><br><br><div align='center'> <a href='./lookup.html'>Lookup an IP address</a><br><br><a href='./login.html'>logout</a></div>`);
             } else {
-                res.send("<div align ='center'><h2>Invalid email or password</h2></div><br><br><div align ='center'><a href='./login.html'>login again</a></div>");
+                res.send("<div align ='center'><h2>Invalid username or password</h2></div><br><br><div align ='center'><a href='./login.html'>login again</a></div>");
             }
         }
         else {
