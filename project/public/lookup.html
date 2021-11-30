@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<title>Geolocation - IP Lookup</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+	<style>
+    #map { height: 500px; }
+	body{
+		font-family: Verdana, Helvetica, Arial, sans-serif;
+		font-size: medium;
+	}
+	</style>
+</head>
+<body>
+    <div id='text' class="container">
+        <h1>Geolocation - IP Lookup</h1>
+        Enter an IP address.
+        <br><br>
+    
+        <form id ="form">
+            <fieldset>
+                <label>IP address</label>
+                <input type ="text" id = 'address' name="address" placeholder="IP Address" required>
+                <br><br>        
+                <button type ="submit">Submit</button>
+            </fieldset>
+        </form>
+        <br><br>
+        <a href='./lookup.html'>Start a New Search</a>
+    </div>
+    <div id="map"></div>
+</body>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+crossorigin=""></script>
+
+<script>
+
+    $(document).ready(function(){
+        $( "button" ).click(function(e) {
+            //store the user's entry in a variable
+            var address = $('#address').val();
+            console.log(address);
+            var ipURL = "https://api.ipfind.com?ip=" + address + "&auth=7d571df0-39c6-42d3-8e75-3fc60d5a986c";
+            console.log(ipURL);
+
+            $.ajax({
+                type:"GET",
+                url: ipURL,
+                dataType: 'json',   
+                success: function(data)
+                {
+                    console.log(data);
+                    var longitude = data.longitude;
+                    var latitude = data.latitude;
+                    var map = L.map('map').setView([latitude, longitude], 13);
+                    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                        maxZoom: 18,
+                        id: 'mapbox/streets-v11',
+                        tileSize: 512,
+                        zoomOffset: -1,
+                        accessToken: 'pk.eyJ1IjoiajEyY2hvaSIsImEiOiJja3dqenlkYW4xbnFiMnFxYnk0eGtoZDFvIn0.XiXaUdhzS4oefIX9Zhk0Jg'
+                    }).addTo(map);
+                    var marker = L.marker([latitude, longitude]).addTo(map);
+                    $('#form').hide();
+                }
+            });
+            e.preventDefault();
+        });
+    });
+</script>
+</html>

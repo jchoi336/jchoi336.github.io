@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<title>Geolocation - IP Lookup</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<style>
+	body{
+		font-family: Verdana, Helvetica, Arial, sans-serif;
+		font-size: medium;
+	}
+	</style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Login</h1>
+        </header>
+        Enter your username and password.
+        <br><br>
+        <form action="/login" method="POST">
+            <fieldset>
+                    
+                <label>Username</label>
+                <input type ="text" id = 'username' name="username" placeholder="username" required>
+                <br><br>
+    
+                <label>Password</label>
+                <input type="password" id = "password" name="password" required>
+                <br><br>
+    
+                <button type ="reset">Reset</button>
+                <button type ="submit">Submit</button>
+            </fieldset>
+            </form>
+            <br><br>
+            <a id="mylink" href="./register.html">Registration Page</a>
+    </div>
+</body>
+</html>
