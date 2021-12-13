@@ -4,7 +4,7 @@ const Joi = require('joi');
 Joi.objectId = require('joi-objectid')(Joi);
 const mongoose = require('mongoose');
 const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb+srv://jchoi336:buttface18@cluster0.huemd.mongodb.net/mydb?retryWrites=true&w=majority";
+const url = "mongodb+srv://jchoi336:<password>@cluster0.huemd.mongodb.net/mydb?retryWrites=true&w=majority";
 //const fetch = require('node-fetch');
 const fetch = require('cross-fetch');
 const bodyParser = require("body-parser");
